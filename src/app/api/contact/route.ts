@@ -9,7 +9,7 @@ interface ContactFormData {
 }
 
 // お問い合わせデータを保存するための仮のデータベース（実際のプロダクションではデータベースを使用）
-let contactSubmissions: (ContactFormData & { id: string; createdAt: Date })[] = [];
+const contactSubmissions: (ContactFormData & { id: string; createdAt: Date })[] = [];
 
 export async function POST(request: NextRequest) {
   try {
