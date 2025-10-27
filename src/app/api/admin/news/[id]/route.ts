@@ -8,15 +8,16 @@ const prisma = new PrismaClient();
 // PUT - ニュース更新
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> } // ← Promise 型に修正
 ) {
   try {
     const session = await getServerSession(authOptions);
-    
+
     if (!session || session.user?.role !== 'admin') {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
+    const params = await context.params; // ← await で展開
     const { title, content, summary, published } = await request.json();
 
     if (!title || !content) {
@@ -33,7 +34,7 @@ export async function PUT(
         content,
         summary: summary || null,
         published: published || false,
-      }
+      },
     });
 
     return NextResponse.json({ news });
@@ -51,17 +52,19 @@ export async function PUT(
 // DELETE - ニュース削除
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> } // ← 同様にPromiseに
 ) {
   try {
     const session = await getServerSession(authOptions);
-    
+
     if (!session || session.user?.role !== 'admin') {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
+    const params = await context.params; // ← awaitで展開
+
     await prisma.news.delete({
-      where: { id: params.id }
+      where: { id: params.id },
     });
 
     return NextResponse.json({ message: 'News deleted successfully' });
