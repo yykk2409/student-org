@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     }
 
     // お問い合わせデータを取得（実際のプロダクションではデータベースから取得）
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/contact`);
+    const response = await fetch(`${process.env.NEXTAUTH_URL}/api/contact`);
     const data = await response.json();
 
     return NextResponse.json(data);
