@@ -3,18 +3,20 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
+export async function GET(
+  req: Request,
+  context: { params: Promise<{ id: string }> }
+) {
+  const { id } = await context.params; // ← await が必要になりました
+
   try {
-    const news = await prisma.news.findUnique({
-      where: { id: params.id },
-    });
-
+    const news = await prisma.news.findUnique({ where: { id } });
     if (!news) {
-      return NextResponse.json({ error: 'News not found' }, { status: 404 });
+      return NextResponse.json({ error: 'ニュースが見つかりません' }, { status: 404 });
     }
-
     return NextResponse.json({ news });
   } catch (error) {
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    console.error(error);
+    return NextResponse.json({ error: '取得に失敗しました' }, { status: 500 });
   }
 }
