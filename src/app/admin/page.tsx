@@ -334,7 +334,7 @@ export default function AdminPage() {
               {/* ニュースフォーム */}
               {showNewsForm && (
                 <div className="mb-6 bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold mb-4">
+                  <h3 className="text-lg text-gray-800 font-semibold mb-4">
                     {editingNews ? 'ニュース編集' : '新規ニュース作成'}
                   </h3>
                   <form onSubmit={handleNewsSubmit} className="space-y-4">
@@ -346,7 +346,7 @@ export default function AdminPage() {
                         type="text"
                         value={newsForm.title}
                         onChange={(e) => setNewsForm({ ...newsForm, title: e.target.value })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                         required
                       />
                     </div>
@@ -357,7 +357,7 @@ export default function AdminPage() {
                       <textarea
                         value={newsForm.summary}
                         onChange={(e) => setNewsForm({ ...newsForm, summary: e.target.value })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                         rows={2}
                       />
                     </div>
@@ -368,7 +368,7 @@ export default function AdminPage() {
                       <textarea
                         value={newsForm.content}
                         onChange={(e) => setNewsForm({ ...newsForm, content: e.target.value })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                         rows={4}
                         required
                       />

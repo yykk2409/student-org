@@ -51,19 +51,19 @@ const Hero = () => {
         {/* Feature Cards */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2">
-            <div className="text-4xl mb-4">🔍</div>
+            <div className="emoji text-white text-4xl mb-4">🔍</div>
             <h3 className="text-xl font-semibold text-white mb-2">問題定義</h3>
             <p className="text-blue-100">違和感を拾い上げる力</p>
           </div>
           
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2">
-            <div className="text-4xl mb-4">💡</div>
+            <div className="emoji text-white text-4xl mb-4">💡</div>
             <h3 className="text-xl font-semibold text-white mb-2">アイデア創造</h3>
             <p className="text-blue-100">新しい価値を生み出す</p>
           </div>
           
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2">
-            <div className="text-4xl mb-4">🚀</div>
+            <div className="emoji text-white text-4xl mb-4">🚀</div>
             <h3 className="text-xl font-semibold text-white mb-2">実行能力</h3>
             <p className="text-blue-100">社会に実装する力</p>
           </div>

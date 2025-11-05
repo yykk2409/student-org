@@ -56,7 +56,7 @@ const Activities = () => {
               className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden"
             >
               <div className="p-8">
-                <div className="text-4xl mb-4">{activity.icon}</div>
+                <div className="emoji text-black text-4xl mb-4">{activity.icon}</div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4">
                   {activity.title}
                 </h3>
